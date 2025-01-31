@@ -17,7 +17,7 @@
       count += 1;
     },
     decrease: function () {
-      count -= 1;
+      count -= 1 ;
     },
     currentValue: function () {
       return count;
