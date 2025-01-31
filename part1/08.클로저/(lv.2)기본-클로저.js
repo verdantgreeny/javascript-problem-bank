@@ -9,6 +9,10 @@
  */
 function simpleClosure() {
   let message = "Hello Closure!";
+  const innerFunc = function () {
+    return message
+  }
+  return innerFunc
 }
 
 // export를 수정하지 마세요.

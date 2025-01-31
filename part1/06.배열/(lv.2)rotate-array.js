@@ -9,6 +9,9 @@
  */
 function rotateArray(arr) {
   // TODO: 원본을 변경하지 않고, 마지막 요소를 맨 앞으로 이동한 새 배열을 반환
+  let newArr = [...arr]
+  newArr.unshift(newArr.pop()) //arr.unshift()는 배열의 길이를 반환 //arr.pop()은 제거된 대상을 반환
+  return newArr
 }
 
 // export를 수정하지 마세요.

@@ -11,8 +11,20 @@
  */
 
 // TODO: looseCompare 함수를 작성하세요.
-
+let looseCompare = function (a, b) {
+    if (a == b) {
+        return true
+    } else {
+        return false
+    }
+}
 // TODO: strictCompare 함수를 작성하세요.
-
+let strictCompare = function (a, b) {
+    if (a === b) {
+        return true
+    } else {
+        return false
+    }
+}
 // export 를 수정하지 마세요.
 export { looseCompare, strictCompare };
