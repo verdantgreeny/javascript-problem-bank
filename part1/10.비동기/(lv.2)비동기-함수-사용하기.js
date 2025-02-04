@@ -10,18 +10,25 @@
  */
 
 // 예시로 사용할 fetchUsers 함수 (수정 금지)
-// function fetchUsers() {
-//   return new Promise((resolve) => {
-//     const mockData = [
-//       { id: 1, name: "Alice" },
-//       { id: 2, name: "Bob" },
-//     ];
-//     resolve(mockData);
-//   });
-// }
+function fetchUsers() {
+  return new Promise((resolve) => {
+    const mockData = [
+      { id: 1, name: "Alice" },
+      { id: 2, name: "Bob" },
+    ];
+    resolve(mockData);
+  });
+}
 
 // TODO: getUsers 함수를 작성하세요.
-async function getUsers(fetchUsers) {}
+async function getUsers(fetchUsers) {
+  const nameArr = [];
+  const data = await fetchUsers();
+  data.forEach((element) => {
+    nameArr.push(element.name);
+  });
+  return nameArr;
+}
 
 // export를 수정하지 마세요.
 export { getUsers };
