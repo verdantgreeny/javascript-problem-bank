@@ -16,7 +16,13 @@
  * @returns {object}
  */
 
-function mergeObjects(...objs) {}
+function mergeObjects(...objs) {
+  //prev : 누적값, curr: 현재값
+  //objs.reduce((p,c)=>(p+c),초기값)
+  return objs.reduce((prev, curr) => {
+    return { ...prev, ...curr };
+  }, {});
+}
 
 // export를 수정하지 마세요.
 export { mergeObjects };
