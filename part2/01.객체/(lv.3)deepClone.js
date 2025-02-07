@@ -8,7 +8,21 @@
  * @returns {*} 깊은 복사된 결과
  */
 
-function deepClone(obj) {}
+function deepClone(obj) {
+    let copy = {};
+
+    if (typeof obj === 'object' && obj !== null) {
+        for (let index in obj) {
+            if (obj.hasOwnProperty(index)) {
+              	//hasOwnProperty : 객체가 특정 property를 가지고 있으면 true 반환
+                copy[index] = deepClone(obj[index]);
+            }
+        }
+    } else {
+        copy = obj;
+    }
+    return copy;
+}
 
 // export 를 수정하지 마세요.
 export { deepClone };
