@@ -14,7 +14,27 @@
  * @returns {{ recordUserAction: Function, getUserActions: Function }}
  */
 
-function createUserLogger() {}
+function createUserLogger() {
+  //userLogs라는 Map 객체를 만들어
+  //userId별로 액션(action)을 기록하세요...?
+  const userLogs = new Map();
+
+  //recordUserAction(userId, action) 함수
+  function recordUserAction(userId, action) {
+    //Set이 없다면 새로 만들어 Map에 등록하세요.
+    if (!userLogs.has(userId)) {
+      userLogs.set(userId, new Set());
+    }
+    //userId에 해당하는 Set을 찾아 action을 추가합니다(중복 액션은 Set이 관리).
+    userLogs.get(userId).add(action);
+  }
+  //getUserActions(userId) 함수: 해당 userId의 모든 actions를 배열로 반환하세요.
+  function getUserActions(userId) {
+    return Array.from(userLogs.get(userId) || []);
+  }
+  //{ recordUserAction, getUserActions }를 반환하세요.
+  return { recordUserAction, getUserActions };
+}
 
 // export 를 수정하지 마세요.
 export { createUserLogger };
