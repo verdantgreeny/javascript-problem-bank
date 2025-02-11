@@ -9,7 +9,13 @@
  * @returns {string}
  */
 
-function reverseString(str) {}
+function reverseString(str) {
+  if (typeof str !== "string") {
+    return "";
+  }
+  const reverseStr = str.split("").reverse().join("");
+  return reverseStr;
+}
 
 // export 를 수정하지 마세요.
 export { reverseString };

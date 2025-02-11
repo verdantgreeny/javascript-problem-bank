@@ -11,7 +11,14 @@
  */
 
 // TODO: 함수를 작성하세요.
-function getFrequency(arr) {}
+function getFrequency(arr) {
+  const answer = arr.reduce((accumulator, currentValue) => {
+    accumulator.set(currentValue, (accumulator.get(currentValue) || 0) + 1); //acc.get(currentValue) || 0 => count
+    return accumulator;
+  }, new Map());
+
+  return Object.fromEntries(answer);
+}
 
 // export 를 수정하지 마세요.
 export { getFrequency };
