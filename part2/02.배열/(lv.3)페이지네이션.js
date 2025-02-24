@@ -19,7 +19,23 @@ const posts = [
   { id: 5, title: "Example" },
 ];
 
-function getPage(pageNumber, perPage) {}
+function getPage(pageNumber, perPage) {
+  if (pageNumber < 1 || perPage <= 0) {
+    return [];
+  }
+
+  //현재 페이지의 첫 번째 게시글 인덱스를 계산
+  const startIndex = (pageNumber - 1) * perPage;
+
+  // 현재 페이지의 마지막 게시글 인덱스를 계산
+  const endIndex = startIndex + perPage;
+
+  if (startIndex >= posts.length) {
+    return [];
+  }
+
+  return posts.slice(startIndex, endIndex);
+}
 
 // export 를 수정하지 마세요.
 export { getPage, posts };
